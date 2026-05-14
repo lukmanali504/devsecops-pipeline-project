@@ -1,19 +1,39 @@
 apiVersion: apps/v1
 kind: Deployment
+
 metadata:
   name: devsecops-app
+
 spec:
   replicas: 2
+
   selector:
     matchLabels:
       app: devsecops-app
+
   template:
     metadata:
       labels:
         app: devsecops-app
+
     spec:
       containers:
       - name: devsecops-app
-        image: YOUR_DOCKERHUB_USERNAME/devsecops-app:latest
+        image: nginx:latest
+
         ports:
-        - containerPort: 5000
+        - containerPort: 80
+
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 1000
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
