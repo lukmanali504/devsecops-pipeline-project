@@ -1,5 +1,6 @@
 venv/
 .terraform/
+aws/
 *.zip
 *.tar.gz
 __pycache__/
