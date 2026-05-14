@@ -44,7 +44,6 @@ Gitleaks is a tool for **detecting** secrets like passwords, API keys, and token
     ░    gitleaks
 
 
-Finding:     "export BUNDLE_ENTERPRISE__CONTRIBSYS__COM=cafebabe:deadbeef",
 Secret:      cafebabe:deadbeef
 RuleID:      sidekiq-secret
 Entropy:     2.609850
@@ -570,8 +569,6 @@ file inside the archive. Inner paths are separated with `!`.
 
 Example finding (shortened for brevity):
 
-```
-Finding:     DB_PASSWORD=8ae31cacf141669ddfb5da
 ...
 File:        testdata/archives/nested.tar.gz!archives/files.tar!files/.env.prod
 Line:        4
